@@ -1,0 +1,158 @@
+https://www.youtube.com/watch?v=lEvXcTYqtKU
+How they found the World's Biggest Prime Number - Numberphile
+Jan 21, 2016
+
+2^74,207,281 - 1 is PRIME.
+
+How did the prove it ?
+
+Matt Parker printed it out - about 1490 pages !!!
+(double sided, 3 volumes, so ~250 pages per volume = 745 pages double sided)
+
+
+NOTE:
+* This method ONLY works for Mersenne primes !!
+* The power of 2 is essential !!!
+
+
+************************************************
+
+https://www.youtube.com/watch?v=lEvXcTYqtKU
+How they found the World's Biggest Prime Number - Numberphile
+1,725,088 views, Jan 21, 2016, 30K likes, Numberphile, 4.06M subscribers,  2,255 Comments
+MoosesValley
+Mon, 04-Apr-2022, 11:04 AM
+Excellent video.  So engaging, so informing, so entertaining !  The faces Matt pulls are so funny.  In fact, I would put them in the "Flippin' hilarious !" category.  And him printing the out the largest prime on 745 pages of paper (double sided) is just such a Matt thing to do.  And it is not a waste of paper, he will take these volumes to talks, lectures, meetings, and people will look at them and wonder ...  On a quiet Sunday afternoon, he will probably put his favorite math's journal aside and flick through these volumes and smile.  (Don't worry, I would as well).
+
+
+
+************************************************
+
+Lucas Numbers ("like Fibonacci but better"):
+
+1, 3, 4, 7, 11, 18, 29, 47, 76, 123
+
+
+Can use these to tell if a number is prime !!!
+
+Eg. Is 5 prime ?
+
+The 5th Lucas number is 11
+11 - 1 = 10
+10 / 5 = 0
+i.e. 10 is a multiple of 5.  5 % 10 = 0 (modulo).
+
+Therefore 5 is a Prime Number !  Probably !
+
+
+Is 6 Prime ?
+
+The 6th Lucas Number is 18
+18 - 1 = 17
+6 % 17 = 5
+
+Therefore 6 is NOT Prime !!  Definitely !
+
+
+The Lucas Test finds numbers that are Definitely NOT Prime !
+And we don't have to find its factors !
+
+5 is a Lucas Pseudo Prime - we are not sure if it is prime.
+It is very likely to be prime, but not guaranteed.
+
+
+************************************************
+
+Lucas-Lehmer Numbers / Sequence:
+
+Xn = Xn-1^2 - 2
+
+4, 4^2 - 2 = 14, 14^2 - 2 = 194, 194^2 - 2 = 37634,
+1416317954, 2005956546822746114,
+
+4, 14, 194, 37634, 1416317954, 2005956546822746114,
+
+
+The numbers get very large, very quickly !
+
+
+Mersenne Primes have the form: 2^n - 1
+
+2^3 - 1 = 7
+
+To check if this is prime using Lucas-Lehmer
+we take the power of 2 (3) and subtract 1
+(leaving 2) and look at the 2nd number in the list
+(14) and see if it is a multiple of the number we are checking (7)
+and it is.
+
+So 7 definitely is prime.
+
+
+2^P - 1 = X
+
+If (P-1)th Lucas-Lehmer is a multiple of X, then
+X is 100% Definitely Prime (no ifs, no buts, no maybes).
+
+Or, if (P-1)th Lucas-Lehmer is NOT a multiple of X, then
+X is 100% Definitely NOT Prime.
+
+We have not had to check its factors !
+
+Lucas did the calculations by hand and proved:
+2^127 - 1 = prime
+2^67  - 1 = NOT prime
+but he never found a single factor !
+
+2^127 - 1
+is the largest prime found by hand.
+
+All primes since then have been found by computer !!!!
+
+
+************************************************
+
+So to prove:
+
+2^74,207,281 - 1 is PRIME.
+
+They looked at the 74,207,280 th Lucas-Lehmer number and checked if it is a multiple of the
+monstrosity 2^74,207,281.
+
+It tooks months of calculations on a super computer.
+
+************************************************
+
+Shortcut
+
+You don't have to store the Lucas-Lehmer numbers exactly, you can store  just the remainders !
+
+A lot less storage !
+
+Example:
+2^13 - 1 = 8191	(one of Matt's favorite Mersenne primes)
+We need to get the 12 th Lucas-Lehmer number
+We only need to find it mod 8191
+
+4, 14, 194, 37634 MOD 8191 = 4870, (4870^2 - 2) MOD 8191 = 3953, 5970, 1857, 36, 1294, 3470, 128, 0
+
+The 12 th term is ZERO = no remainder !!
+
+
+NOTE:
+* This method ONLY works for Mersenne primes !!
+* The power of 2 is essential !!!
+
+
+Mersenne primes
+The power (N) has to be a prime for 2^N - 1 is prime.
+
+If N is not prime, 2^N - 1 is NOT prime.
+
+You can join the search for largest primes with free computer software like:
+* GIMPS - Great Internet Mersenne Prime Search, https://www.mersenne.org/download/
+* PrimeGrid
+
+12:12 "I like the fact that as we speak, at home, my computer is doing maths, so I don't have to", Matt Parker
+
+EOF.
