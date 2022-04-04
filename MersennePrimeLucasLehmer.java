@@ -3,7 +3,7 @@
 
 ---------------------------------------------------------------------
 Mersenne Prime Calculator using Lucas-Lehmer Numbers
-by Moose OMalley, v0.02
+by Moose OMalley, v0.03
 ---------------------------------------------------------------------
 
 *** TEST CASES to prove my code is correct:
@@ -31,6 +31,9 @@ Starting from scratch:
 * 2^2203 - 1             1.475979915E+0663
 * 2^2281 - 1             4.460875571E+0686
 * 2^3217 - 1             2.591170860E+0968
+* 2^4253 - 1             1.907970075E+01280
+* 2^4423 - 1             2.855425422E+01331
+* 2^9689 - 1             4.782202788E+02916
 :::::
 
 */
@@ -71,7 +74,65 @@ public class MersennePrimeLucasLehmer
       return bigResult;
    }
 
-   public static boolean isPowerOfNumberPrime (int power)
+   //static ArrayList<Integer> knownPrimes = new ArrayList<Integer> ();
+
+
+   public static boolean isPrime (int val)
+   {
+      // Very slow method ...
+      // Should at least store prior results in an array / arraylist ...
+
+
+      boolean result = true;
+
+      if (val % 2 == 0)
+      {
+         result = false;  // val is NOT prime !
+      }
+      else
+      {
+         for (int k = 3; k < val / 2; )
+         {
+            if (val % k == 0)
+            {
+               result = false; // val is NOT prime !
+               k = val / 2; // Exit Loop
+            }
+
+            k = k + 2;
+         }
+      }
+
+      return result;
+
+
+      /*
+      WIP
+
+
+      if (knownPrimes.size() == 0)
+      {
+         knownPrimes.add (2);
+         knownPrimes.add (3);
+      }
+
+      if (knownPrimes.get (knownPrimes.size() - 1) ) < val)
+      {
+         // Out array needs more data ...
+      }
+
+      (for (int k = 0; k < knownPrimes.size(); k++)
+      {
+         if (knownPrimes.get(k).
+
+      }
+      if (knownPrimes.contains(val) == true)
+         result = true;
+      */
+   }
+
+
+   public static boolean isMersennePrime (int power)
    {
       // If Power is NOT prime, therefore 2^N - 1 cannot be prime.
 
@@ -84,7 +145,7 @@ public class MersennePrimeLucasLehmer
       BigInteger twoPowerMinus1 = TWO.pow (power);
       twoPowerMinus1            = twoPowerMinus1.subtract (BigInteger.ONE);
 
-      if (power > 1) //&& (isPrime (power) == true) )
+      if ((power > 1) && (isPrime (power) == true) )
       {
          // Get the remainder of the N-1 th Lucas-Lehmer number
          for (int k = 2; k < power; k++)
@@ -120,7 +181,7 @@ public class MersennePrimeLucasLehmer
    {
       System.out.println ("---------------------------------------------------------------------");
       System.out.println ("Mersenne Prime Calculator using Lucas-Lehmer Numbers");
-      System.out.println ("by Moose OMalley, v0.02");
+      System.out.println ("by Moose OMalley, v0.03");
       System.out.println ("---------------------------------------------------------------------");
 
 
@@ -128,13 +189,13 @@ public class MersennePrimeLucasLehmer
 
       System.out.println ("");
       System.out.println ("*** TEST CASES to prove my code is correct: ");
-      isPowerOfNumberPrime (13);  // 8191
-      isPowerOfNumberPrime (31);  //
-      isPowerOfNumberPrime (61);  //
-      isPowerOfNumberPrime (127);  // Largest Prime calculated by hand, by Lucas in 1876.
-      isPowerOfNumberPrime (1_279);  //
-      //isPowerOfNumberPrime (23_209);  //
-      //isPowerOfNumberPrime (20_996_011);  //
+      isMersennePrime (13);  // 8191
+      isMersennePrime (31);  //
+      isMersennePrime (61);  //
+      isMersennePrime (127);  // Largest Prime calculated by hand, by Lucas in 1876.
+      isMersennePrime (1_279);  //
+      //isMersennePrime (23_209);  //
+      //isMersennePrime (20_996_011);  //
 
 
       System.out.println ("");
@@ -145,11 +206,11 @@ public class MersennePrimeLucasLehmer
          int power = 1 + (count * 2);
          //int power = 1 + count;
 
-         //System.out.println (num + ". " + isPowerOfNumberPrime (num) );
+         //System.out.println (num + ". " + isMersennePrime (num) );
 
-         isPowerOfNumberPrime (power);
+         isMersennePrime (power);
 
-         //if (isPowerOfNumberPrime (power) == true)
+         //if (isMersennePrime (power) == true)
          //   System.out.println ("2^" + power + " - 1   --> " + (long) (Math.pow (2, power) - 1) );
          //if (count % 1_000 == 0)
          //   System.out.print (".");
